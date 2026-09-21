@@ -1,0 +1,15 @@
+{
+  "name": "personal-group-board",
+  "private": true,
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @board/web",
+    "build": "npm run build --workspace @board/web",
+    "test": "node scripts/validate.mjs && npm run build"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}

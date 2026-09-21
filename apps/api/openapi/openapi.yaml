@@ -1,0 +1,26 @@
+openapi: 3.1.0
+info: {title: Personal Group Board API, version: 0.1.0}
+paths:
+  /health:
+    get: {responses: {'200': {description: Service health}}}
+  /v1/workspaces:
+    get: {responses: {'200': {description: Workspaces visible to the authenticated user}}}
+  /v1/publications:
+    post:
+      description: Publishes a selected personal item to a workspace. eventId is idempotent.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [eventId, workspaceId, sourceItemId, targetType]
+              properties:
+                eventId: {type: string, format: uuid}
+                workspaceId: {type: string, format: uuid}
+                sourceItemId: {type: string, format: uuid}
+                targetType: {type: string, enum: [task, announcement, schedule]}
+      responses:
+        '201': {description: Publication created}
+        '200': {description: Same eventId was already published}
+        '403': {description: Caller is not a workspace member}

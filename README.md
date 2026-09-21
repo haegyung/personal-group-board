@@ -2,6 +2,15 @@
 
 > 현재 상태: GitHub 비공개 저장소에서 설계와 검증을 관리합니다. 실제 웹서비스 런타임은 GitHub와 분리해 배포합니다.
 
+## 웹 MVP 실행
+
+```bash
+npm install
+npm run dev
+```
+
+개발 데이터베이스는 `docker compose up postgres`로 시작합니다. PostgreSQL + pgvector 스키마는 `db/migrations/001_initial.sql`에 있으며, API의 첫 계약은 `apps/api/openapi/openapi.yaml`에 정리했습니다. OAuth와 실제 API 실행기는 아직 연결하지 않았으므로, 현재 웹 화면은 브라우저 안의 시연 데이터로 동작합니다.
+
 개인은 자신의 업무와 RAG 자료를 관리하고, 필요한 항목만 그룹의 **업무·공지·질문·마감·일정**으로 발행합니다.
 
 - Google Sheets: 공용 데이터베이스이자 관리자용 원장

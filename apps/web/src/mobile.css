@@ -1,0 +1,28 @@
+@media (max-width: 720px) {
+  .workspace {
+    overflow-x: hidden;
+  }
+
+  .work-list {
+    min-width: 0;
+  }
+
+  .work-list {
+    overflow-x: auto;
+  }
+
+  .timeline-scroll {
+    margin-bottom: 35px;
+    overflow-x: auto;
+  }
+
+  .timeline {
+    margin-bottom: 0;
+    min-width: 650px;
+  }
+
+  .work-list .table-head,
+  .work-list .task-row {
+    min-width: 650px;
+  }
+}

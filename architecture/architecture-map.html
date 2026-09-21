@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>개인 보드와 그룹 워크스페이스</title>
+  <style>
+    :root{--surface-ground:#0e0e10;--surface:#16161a;--surface-elevated:#1f1f24;--ink:#f4f4f6;--muted:#a3a6ad;--blue:#5E81AC;--orange:#bf6535;--line:#383840}*{box-sizing:border-box}body{margin:0;background:var(--surface-ground);color:var(--ink);font:15px/1.55 Arial,"Apple SD Gothic Neo",sans-serif}.sheet{min-height:100vh;padding:48px clamp(24px,6vw,92px)}header{max-width:760px;margin-bottom:42px}.eyebrow{color:var(--blue);font-size:11px;letter-spacing:.14em}.title{font-size:clamp(32px,5vw,56px);line-height:1.06;letter-spacing:-.07em;margin:8px 0 12px}.lead{max-width:620px;color:var(--muted);margin:0}.meaning-vector{position:relative;min-height:410px;margin-top:20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}svg{width:100%;height:100%;position:absolute;inset:0}.rail{stroke:#62636b;stroke-width:1;fill:none}.flow{stroke:var(--blue);stroke-width:4;fill:none}.gate{fill:var(--surface-elevated);stroke:#b8b9bb;stroke-width:2}.marker{fill:var(--orange)}.label{position:absolute;max-width:260px}.label h2{font-size:17px;margin:0 0 4px;letter-spacing:-.03em}.label p{color:var(--muted);margin:0;font-size:13px}.personal{left:0;top:42%}.gate-label{left:42%;top:10%}.groups{right:0;top:16%;text-align:right}.groups p{margin-bottom:46px}.footer{margin-top:26px;color:var(--muted);font-size:13px}@media(max-width:700px){.meaning-vector{min-height:540px}.personal{top:9%}.gate-label{top:43%;left:4%}.groups{top:68%;text-align:left;left:4%;right:auto}.groups p{margin:0 0 12px}}
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <header><div class="eyebrow">ARCHITECTURE · V1</div><h1 class="title">개인은 먼저 완결하고,<br>그룹에는 선택해 보냅니다.</h1><p class="lead">개인 원문은 기기에 남고, 사용자가 고른 요약만 멤버십이 확인된 그룹 워크스페이스의 실행 기록으로 발행됩니다.</p></header>
+    <section class="meaning-vector pivot" aria-label="개인 보드에서 그룹 워크스페이스로 가는 발행 흐름">
+      <svg viewBox="0 0 1200 410" preserveAspectRatio="none" aria-hidden="true"><path class="rail" d="M0 205H500"/><path class="flow" d="M0 205H500"/><rect class="gate" x="500" y="150" width="90" height="110" rx="2"/><circle class="marker" cx="545" cy="205" r="10"/><path class="rail" d="M590 205C730 205 720 75 900 75H1200M590 205H1200M590 205C730 205 720 335 900 335H1200"/><path d="M590 205C730 205 720 75 900 75H1200M590 205H1200M590 205C730 205 720 335 900 335H1200" stroke="#5E81AC" stroke-width="4" fill="none"/></svg>
+      <div class="label personal"><h2>개인 보드</h2><p>DuckDB 정본 · 직접 SQL · 개인 RAG · 개인 Outbox</p></div>
+      <div class="label gate-label"><h2>발행 게이트</h2><p>대상 선택 · 멤버십 확인 · eventId 중복 방지</p></div>
+      <div class="label groups"><h2>그룹 워크스페이스</h2><p>업무 · 공지 · 질문 · 읽음 · 이력</p><p>그룹마다 권한과 원장을 분리</p><p>Google Sheets는 첫 그룹 저장소</p></div>
+    </section>
+    <p class="footer">개인 항목은 자동으로 공유되지 않습니다. 실패한 발행은 Outbox에 남아, 사용자가 다시 확인한 뒤 재시도합니다.</p>
+  </main>
+</body>
+</html>

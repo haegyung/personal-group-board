@@ -1,0 +1,40 @@
+{
+  "artifact_id": "personal-to-group-architecture-v1",
+  "concept_stage": {
+    "draft_image_path": "architecture/personal-to-group-architecture-anchor.png",
+    "prompt": "A text-free, physical architecture metaphor for a universal personal workspace connecting to multiple separate group work lanes: one calm private desk rail enters a precision mechanical approval gate, then branches into several identical shared rails. Matte zinc charcoal, brushed steel and warm paper material, muted steel-blue private stream, one tiny burnt-orange decision marker, orthographic technical editorial composition, no panels, no screens, no interfaces, no logos, no letters, no words, no numbers, no glow."
+  },
+  "implementation_stage": {
+    "render_image_path": "architecture/personal-to-group-architecture-anchor.png",
+    "target_format": "Native-text architecture document with private-to-group publication gate"
+  },
+  "parity_audit_scores": {
+    "spatial_composition_parity": 92,
+    "depth_lighting_fidelity": 90,
+    "kinetic_force_parity": 93,
+    "semantic_text_sharpness": 100,
+    "visual_comfort_index": 91
+  },
+  "fixed_visual_spec": {
+    "is_dark_mode": false,
+    "accent_color_saturation": 0.54,
+    "has_neon_glow": false,
+    "luminous_target_type": "precision_gate",
+    "has_causal_predicate": true,
+    "luminous_area_ratio": 0.0,
+    "surface_elevation_steps": 3,
+    "nested_border_depth": 1,
+    "stroke_weights": [0.5, 1.0, 2.5],
+    "body_cpl": 52,
+    "static_panel_border_radius_px": 0,
+    "interactive_border_radius_px": 6,
+    "non_interactive_pill_badge_count": 0,
+    "emoji_in_technical_titles_count": 0,
+    "spot_color_count": 2,
+    "has_traffic_light_dispersion": false,
+    "accent_area_ratio": 0.025,
+    "has_theme_parity": true,
+    "has_hardcoded_alpha_layers": false,
+    "layout_archetype": "precision_docking"
+  }
+}

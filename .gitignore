@@ -1,0 +1,15 @@
+# Local and generated runtime state
+runs/
+.codex/
+.DS_Store
+
+# Future web-service runtime state
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+coverage/
+*.duckdb
+*.duckdb.wal
+*.duckdb.tmp

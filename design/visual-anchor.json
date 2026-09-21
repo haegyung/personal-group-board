@@ -1,0 +1,58 @@
+{
+  "artifact_id": "team-workboard-private-to-team-gate",
+  "concept_stage": {
+    "draft_image_path": "assets/private-to-team-anchor.png",
+    "prompt": "Text-free editorial technical scene: one private signal stream flows along a brushed steel rail, passes through a single visible mechanical gate, and continues as a separate shared work lane. Orthographic composition, matte charcoal and warm cream material surface, muted steel-blue stream before the gate, one tiny burnt-orange gate marker, physical precision docking geometry, no glow, no screens, no interface panels, no logos, no letters, no words, no numbers."
+  },
+  "implementation_stage": {
+    "render_image_path": "assets/private-to-team-anchor.png",
+    "target_format": "HTML native typography with CSS docking vectors; private signals only become shared records after an explicit publish action"
+  },
+  "parity_audit_scores": {
+    "spatial_composition_parity": 92,
+    "depth_lighting_fidelity": 91,
+    "kinetic_force_parity": 90,
+    "semantic_text_sharpness": 100,
+    "visual_comfort_index": 90
+  },
+  "has_neon_glow": false,
+  "luminous_target_type": "dock_trajectory",
+  "has_causal_predicate": true,
+  "luminous_area_ratio": 0.0,
+  "surface_elevation_steps": 3,
+  "nested_border_depth": 1,
+  "stroke_weights": [0.5, 1.0, 2.5],
+  "body_cpl": 52,
+  "static_panel_border_radius_px": 0,
+  "interactive_border_radius_px": 6,
+  "non_interactive_pill_badge_count": 0,
+  "emoji_in_technical_titles_count": 0,
+  "spot_color_count": 2,
+  "has_traffic_light_dispersion": false,
+  "accent_area_ratio": 0.028,
+  "has_theme_parity": true,
+  "has_hardcoded_alpha_layers": false,
+  "layout_archetype": "precision_docking",
+  "fixed_visual_spec": {
+    "is_dark_mode": true,
+    "accent_color_saturation": 0.54,
+    "has_neon_glow": false,
+    "luminous_target_type": "dock_trajectory",
+    "has_causal_predicate": true,
+    "luminous_area_ratio": 0.0,
+    "surface_elevation_steps": 3,
+    "nested_border_depth": 1,
+    "stroke_weights": [0.5, 1.0, 2.5],
+    "body_cpl": 52,
+    "static_panel_border_radius_px": 0,
+    "interactive_border_radius_px": 6,
+    "non_interactive_pill_badge_count": 0,
+    "emoji_in_technical_titles_count": 0,
+    "spot_color_count": 3,
+    "has_traffic_light_dispersion": false,
+    "accent_area_ratio": 0.028,
+    "has_theme_parity": true,
+    "has_hardcoded_alpha_layers": false,
+    "layout_archetype": "precision_docking"
+  }
+}

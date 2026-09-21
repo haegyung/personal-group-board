@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Shared work board sync event",
+  "type": "object",
+  "required": ["eventId", "workspaceId", "type", "occurredAt"],
+  "properties": {
+    "eventId": { "type": "string", "format": "uuid" },
+    "workspaceId": { "type": "string", "format": "uuid" },
+    "itemId": { "type": "string" },
+    "type": { "enum": ["publication", "item_update", "read_receipt"] },
+    "occurredAt": { "type": "string", "format": "date-time" },
+    "item": {
+      "type": "object",
+      "description": "공유 대상으로 사용자가 고른 항목만 넣는다. 개인 메모·RAG 원본·기기 전체 데이터는 넣지 않는다.",
+      "properties": { "title": { "type": "string" }, "kind": { "enum": ["task", "announcement", "question", "schedule"] }, "body": { "type": "string" }, "due": { "type": "string" } },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

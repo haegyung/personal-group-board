@@ -24,3 +24,42 @@ paths:
         '201': {description: Publication created}
         '200': {description: Same eventId was already published}
         '403': {description: Caller is not a workspace member}
+  /v1/sync/events:
+    post:
+      description: Receives idempotent shared events. Personal source records are never accepted by this endpoint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [actorName, events]
+              properties:
+                actorName: {type: string}
+                events:
+                  type: array
+                  items:
+                    type: object
+                    required: [eventId, itemId, type, occurredAt]
+                    properties:
+                      eventId: {type: string, format: uuid}
+                      itemId: {type: string}
+                      type: {type: string, enum: [publication, item_update, read_receipt]}
+                      occurredAt: {type: string, format: date-time}
+                      item: {type: object}
+      responses:
+        '202': {description: Events accepted for processing}
+        '400': {description: Event payload violates the shared event contract}
+        '401': {description: Authentication is required}
+        '403': {description: Caller is not a workspace member}
+  /v1/announcements/{announcementId}/receipts:
+    post:
+      description: Records an idempotent announcement read receipt for the authenticated member.
+      parameters:
+        - name: announcementId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '201': {description: Receipt recorded}
+        '200': {description: Receipt already exists}

@@ -1,6 +1,13 @@
-# 개인 보드 + 그룹 대시보드
+# 일의 자리 — 개인 보드 + 그룹 대시보드
 
-> 현재 상태: GitHub 비공개 저장소에서 설계와 검증을 관리합니다. 실제 웹서비스 런타임은 GitHub와 분리해 배포합니다.
+> 현재 상태: 개인 보드는 브라우저에 저장되며, 공유 이벤트는 별도 API 계약으로 준비했습니다. GitHub는 코드·검증·배포 파일을 공유하는 곳이며 팀 업무 데이터의 원본 DB는 아닙니다.
+
+## 라이선스와 공개 범위
+
+이 저장소의 원본 코드·문서·설계 자산은 [CC BY-NC 4.0](LICENSE)으로 제공합니다.
+출처를 표시하고 변경 사실을 밝히는 조건에서 복사·수정·재배포할 수 있지만, **상업적 이용은 허용하지 않습니다.**
+
+이 조건은 OSI가 정의한 오픈소스 라이선스가 아니라 비상업적 소스 공개 조건입니다. npm 의존성, 외부 자산, 상표, 개인정보와 사용자가 연결하는 Google 서비스에는 각자의 권리·약관이 적용됩니다. 공개 전에는 [공개 전 점검표](PUBLIC_RELEASE_CHECKLIST.md)와 [제3자 권리 고지](THIRD_PARTY_NOTICES.md)를 확인하세요.
 
 ## 웹 MVP 실행
 
@@ -9,7 +16,19 @@ npm install
 npm run dev
 ```
 
-개발 데이터베이스는 `docker compose up postgres`로 시작합니다. PostgreSQL + pgvector 스키마는 `db/migrations/001_initial.sql`에 있으며, API의 첫 계약은 `apps/api/openapi/openapi.yaml`에 정리했습니다. OAuth와 실제 API 실행기는 아직 연결하지 않았으므로, 현재 웹 화면은 브라우저 안의 시연 데이터로 동작합니다.
+처음 실행하면 바로 개인 보드를 쓸 수 있습니다. 업무를 추가하고, 완료 처리하고, 필요한 항목만 **공유하기**로 팀 보드에 보낼 수 있습니다. 데이터는 브라우저 `localStorage`에 남습니다. 공유 서버를 아직 배포하지 않았다면 `동기화 → JSON으로 내보내기`로 공유 이벤트를 확인할 수 있습니다.
+
+공유 API를 붙일 때만 `.env.example`을 `.env`로 복사해 `VITE_SYNC_API_BASE`를 설정합니다. 개발 데이터베이스는 `docker compose up postgres`로 시작합니다. 공유 DB 마이그레이션은 `db/migrations/001_initial.sql`, `db/migrations/002_local_first_sync.sql`에 있고, API 계약은 `apps/api/openapi/openapi.yaml`, `contracts/sync-event.schema.json`에 있습니다.
+
+## 지금 제공하는 흐름
+
+- 개인 보드: 업무·메모·마감을 이 기기에 저장
+- 공유 보드: 사용자가 고른 업무, 공지, 질문, 일정만 표시
+- 공지: 읽음 기록을 별도 동기화 이벤트로 저장
+- 이력: 각 동작은 전송 대기열에서 확인하고 JSON으로 내보낼 수 있음
+- 화면: 다크/라이트 화면과 작은 화면 대응
+
+DuckDB와 RAG가 들어간 네이티브 실행 파일은 이 저장소의 다음 패키징 단계입니다. 지금 웹 MVP는 그 경계를 흉내 내지 않고, 브라우저 로컬 저장소와 공유 이벤트 계약만 실제로 동작시킵니다. 자세한 경계는 [로컬 우선 공유 계약](architecture/02-local-first-sharing-contract.md)을 참고하세요.
 
 개인은 자신의 업무와 RAG 자료를 관리하고, 필요한 항목만 그룹의 **업무·공지·질문·마감·일정**으로 발행합니다.
 
